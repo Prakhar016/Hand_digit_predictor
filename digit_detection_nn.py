@@ -17,6 +17,8 @@ from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
 import random
 import matplotlib.image as mpimg
+import requests as r
+from PIL import Image
 
 np.random.seed(0)
 
@@ -113,8 +115,7 @@ plt.legend(["acc","val_acc"])
 plt.title("acc")
 plt.xlabel("epoch")
 
-import requests as r
-from PIL import Image
+
 response=r.get("https://kx.com/images/03_IMAGES/160520-8.png",stream=True)
 img=Image.open(response.raw).convert("L")
 plt.imshow(img,cmap="gray")
